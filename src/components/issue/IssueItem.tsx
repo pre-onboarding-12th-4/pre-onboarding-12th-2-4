@@ -16,7 +16,7 @@ export default function IssueItem({ issue }: Props) {
         <p className='header-info'>
           <span className='author'>{issue.author}</span>
           <span className='time'>
-            작성일: {issue.date.slice(0, 10)} {issue.date.slice(11, 19)}
+            작성일: {issue.date?.slice(0, 10)} {issue.date?.slice(11, 19)}
           </span>
           <span className='comment'>댓글: {issue.comments}</span>
         </p>

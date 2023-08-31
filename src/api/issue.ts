@@ -1,6 +1,8 @@
 import { Issue } from '../types';
 import instance from './index';
 
+export const LOAD_DATA_LENGTH = 15;
+
 const fetchGetIssues = async (
   organization: string,
   repository: string,

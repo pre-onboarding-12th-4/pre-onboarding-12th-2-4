@@ -1,5 +1,6 @@
 import { fetchGetIssues, LOAD_DATA_LENGTH } from '../../api/issue';
 import { Issue } from '../../types';
+import { IssueOptions } from './issueOption';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface IssueState {
@@ -10,9 +11,7 @@ export interface IssueState {
   hasMore: boolean;
 }
 
-export interface GetIssueOptions {
-  organization: string;
-  repository: string;
+export interface GetIssueOptions extends IssueOptions {
   page: number;
 }
 

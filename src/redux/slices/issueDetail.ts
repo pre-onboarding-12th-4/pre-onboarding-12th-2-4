@@ -1,5 +1,6 @@
 import { fetchGetIssueDetail } from '../../api/issue';
 import { Issue } from '../../types';
+import { IssueOptions } from './issueOption';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface IssueDetailState {
@@ -14,9 +15,7 @@ const initialState = {
   error: null as string | null,
 };
 
-export interface GetIssueDetailOptions {
-  organization: string;
-  repository: string;
+export interface GetIssueDetailOptions extends IssueOptions {
   issueNumber: number;
 }
 

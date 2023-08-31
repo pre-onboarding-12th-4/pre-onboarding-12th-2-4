@@ -39,7 +39,7 @@ export const issueDetailSlice = createSlice({
       fetchIssueDetail.fulfilled,
       (state: IssueDetailState, action: PayloadAction<Issue>) => {
         state.loading = false;
-        data: action.payload;
+        state.data = action.payload;
       },
     );
     builder.addCase(fetchIssueDetail.rejected, (state: IssueDetailState) => {

@@ -26,14 +26,17 @@ export default function Detail() {
   }
   return (
     <Layout>
-      {loading && <Loader position='center' />}
-      <StyledDetail>
-        <IssueItem isDetail={true} issue={issue} />
-        <div>
-          <ReactMarkdown children={issue.body} />
-          {issue.body}
-        </div>
-      </StyledDetail>
+      {loading ? (
+        <Loader position='center' />
+      ) : (
+        <StyledDetail>
+          <IssueItem isDetail={true} issue={issue} />
+          <div>
+            <ReactMarkdown children={issue.body} />
+            {issue.body}
+          </div>
+        </StyledDetail>
+      )}
     </Layout>
   );
 }

@@ -60,7 +60,6 @@ export default function Issue() {
 
   return (
     <Layout>
-      {loading && <Loader position='bottom' />}
       <StyledIssueList>
         {issueList.length !== 0 &&
           issueList.map((issue, index) => {
@@ -78,6 +77,7 @@ export default function Issue() {
             );
           })}
       </StyledIssueList>
+      {loading && <Loader position='bottom' />}
     </Layout>
   );
 }

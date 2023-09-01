@@ -182,23 +182,27 @@ module.exports = {
 - getIssue url과 getIssueDetail url을 나눠서 호출
 
 - getIssue url
+
 ```
 facebook/react/issues?per_page=${LOAD_DATA_LENGTH}&page=${page}&sort=comments
 ```
+
 - getIssueDetail url
+
 ```
 facebook/react/issues/${issueNumber}
 ```
-  
-### Assignment 1-2: 이슈 목록 화면 
->- open 상태의 이슈 중 코멘트가 많은 순으로 정렬
->- 각 행에는 ‘이슈번호, 이슈제목, 작성자, 작성일, 코멘트수’를 표시
->- 다섯번째 셀마다 광고 이미지 출력
->- 데이터 로딩여부 표시
+
+### Assignment 1-2: 이슈 목록 화면
+
+> - open 상태의 이슈 중 코멘트가 많은 순으로 정렬
+> - 각 행에는 ‘이슈번호, 이슈제목, 작성자, 작성일, 코멘트수’를 표시
+> - 다섯번째 셀마다 광고 이미지 출력
+> - 데이터 로딩여부 표시
 
 - useSelector를 사용하여 isses 상태값을 불러옴
 - Issue 페이지에서 map()을 사용하여 IssueItem 컴포넌트를 호출하고 issue 아이템을 props로 전달
-   
+
 #### open 상태의 이슈 중 코멘트가 많은 순으로 정렬
 
 - api 호출 시 url의 params에 sort:'comments'를 추가해 정렬
@@ -212,22 +216,24 @@ facebook/react/issues/${issueNumber}
 - redux state의 loading 값을 이용해 true일 시에는 로딩표시
 
 ### Assignment 1-3: 이슈 목록 화면 무한 스크롤
->- 화면을 아래로 스크롤 할 시 이슈 목록 추가 로딩(인피니티 스크롤)
+
+> - 화면을 아래로 스크롤 할 시 이슈 목록 추가 로딩(인피니티 스크롤)
 
 - useScroll 커스텀 훅을 만들어 스크롤 위치에 따라 추가로 이슈 목록 호출
 
 ### Assignment 2: 이슈 상세 화면
->- 이슈 상세 화면으로 이동
->- 이슈의 상세 내용 표시
->- ‘이슈번호, 이슈제목, 작성자, 작성일, 코멘트 수, 작성자 프로필 이미지, 본문' 표시
+
+> - 이슈 상세 화면으로 이동
+> - 이슈의 상세 내용 표시
+> - ‘이슈번호, 이슈제목, 작성자, 작성일, 코멘트 수, 작성자 프로필 이미지, 본문' 표시
 
 - Detail 페이지에서 redux의 fetchIssueDetail 액션을 dispatch 후 상세 내용 호출
 - url: facebook/react/issues/${issueNumber} 로 상세페이지 api 호출
 
 ### Assignment 3: 공동 헤더
->- 두 페이지는 공통 헤더를 공유.
->- 헤더에는 Organization Name / Repository Name이 표시
+
+> - 두 페이지는 공통 헤더를 공유.
+> - 헤더에는 Organization Name / Repository Name이 표시
 
 - 추후에 organization/ repository가 바뀔 때를 대비해 redux에 해당 내용 저장
 - redux의 organization/ repository 주소를 <Header /> 컴포넌트에 불러와 사용
-

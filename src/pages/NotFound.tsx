@@ -7,10 +7,10 @@ export default function NotFound() {
     <StyledError>
       <img
         src='https://media.licdn.com/dms/image/D4D12AQEtqlEK0dq1vg/article-cover_image-shrink_600_2000/0/1658685948954?e=2147483647&v=beta&t=uz1A7IbQofPDzcsrB_YcD0BhcauXET_-KOZjO2-FrL4'
-        alt='error'
+        alt='404 error'
       />
       <h1>404 찾을 수 없는 페이지입니다.</h1>
-      <button onClick={() => navigate('/')}>홈페이지로 가기</button>
+      <button onClick={() => navigate('/')}>홈페이지로 이동</button>
     </StyledError>
   );
 }

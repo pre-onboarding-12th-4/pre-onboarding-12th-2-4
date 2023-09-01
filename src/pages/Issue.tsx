@@ -1,16 +1,17 @@
 import Ad from '../components/Ad';
 import Header from '../components/common/Header';
 import IssueItem from '../components/issue/IssueItem';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { fetchIssue } from '../redux/slices/issue';
-import { AppDispatch, RootState } from '../redux/store';
+import { RootState } from '../redux/store';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { styled } from 'styled-components';
 
 export default function Issue() {
   const issues = useSelector((state: RootState) => state.issueList);
-  const { organization, repository } = useSelector((state: RootState) => state.issueOption);
-  const dispatch = useDispatch<AppDispatch>();
+  const { organization, repository } = useAppSelector(state => state.issueOption);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(

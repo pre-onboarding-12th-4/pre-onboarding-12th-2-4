@@ -1,9 +1,8 @@
-import { RootState } from '../../redux/store';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../redux/hooks';
 import { styled } from 'styled-components';
 
 export default function Header() {
-  const { organization, repository } = useSelector((state: RootState) => state.issueOption);
+  const { organization, repository } = useAppSelector(state => state.issueOption);
   return (
     <RepoHeader>
       <RepoOwner>{organization}</RepoOwner>

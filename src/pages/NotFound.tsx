@@ -30,15 +30,20 @@ const StyledError = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background: white;
+  h1 {
+    color: var(--color-bg-grey);
+  }
   button {
+    background: var(--color-dark-grey);
     width: 200px;
     padding: 10px;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.5);
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
-
     &:hover {
-      background: rgba(0, 0, 0, 0.05);
+      background: var(--color-yellow);
+      color: var(--color-dark-grey);
     }
   }
 `;

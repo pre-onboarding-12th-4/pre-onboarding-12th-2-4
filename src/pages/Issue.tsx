@@ -61,13 +61,14 @@ export default function Issue() {
   return (
     <>
       <Header />
+      {loading && <Loader position='bottom' />}
       <StyledIssueList>
         {issueList.length &&
           issueList.map((issue, index) => {
             return (
               <Fragment key={`${issue.number} ${index}`}>
                 <li>
-                  <IssueItem issue={issue} />
+                  <IssueItem isDetail={false} issue={issue} />
                 </li>
                 {(index + 1) % 4 === 0 && (
                   <li>
@@ -77,16 +78,15 @@ export default function Issue() {
               </Fragment>
             );
           })}
-        {loading && <Loader />}
       </StyledIssueList>
     </>
   );
 }
 
 const StyledIssueList = styled.ul`
+  max-width: 800px;
+  margin: 0 auto 80px;
   li {
-    padding: 30px;
-    border: solid 1px #545454;
-    margin: 2px;
+    margin: 15px 0;
   }
 `;

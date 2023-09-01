@@ -38,12 +38,14 @@ export const issueDetailSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(fetchIssueDetail.pending, (state: IssueDetailState) => {
       state.loading = true;
+      state.error = null;
     });
     builder.addCase(
       fetchIssueDetail.fulfilled,
       (state: IssueDetailState, action: PayloadAction<Issue>) => {
         state.loading = false;
         state.data = action.payload;
+        state.error = null;
       },
     );
     builder.addCase(fetchIssueDetail.rejected, (state: IssueDetailState, action) => {

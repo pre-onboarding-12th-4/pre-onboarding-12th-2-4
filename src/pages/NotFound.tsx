@@ -1,25 +1,3 @@
-// import { styled } from 'styled-components';
-// export default function NotFound() {
-//   return (
-//     <ErrorContainer>
-//       <img
-//         src='https://media.licdn.com/dms/image/D4D12AQEtqlEK0dq1vg/article-cover_image-shrink_600_2000/0/1658685948954?e=2147483647&v=beta&t=uz1A7IbQofPDzcsrB_YcD0BhcauXET_-KOZjO2-FrL4'
-//         alt='error'
-//       />
-//       <p>Error! 찾을 수 없는 페이지입니다.</p>
-//     </ErrorContainer>
-//   );
-// }
-// const ErrorContainer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   font-size: 30px;
-//   & p {
-//     margin-top: 30px;
-//   }
-// `;
 import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 

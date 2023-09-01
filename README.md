@@ -11,8 +11,7 @@
 | :---------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: |
 | <img width="180" alt="" src="https://avatars.githubusercontent.com/u/33623123?v=4"> | <img width="180" alt="" src="https://avatars.githubusercontent.com/u/19181088?v=4"> | <img width="180" alt="" src="https://avatars.githubusercontent.com/u/73675549?v=4"> | <img width="180" alt="" src="https://avatars.githubusercontent.com/u/22779951?v=4" > | <img width="180" alt="" src="https://avatars.githubusercontent.com/u/107099724?v=4" > | <img width="180" alt="" src="https://avatars.githubusercontent.com/u/52943412?v=4" > |
 |                      [llbllhllk](https://github.com/llbllhllk)                      |                       [nuri1042](https://github.com/nuri1042)                       |                       [devshinn](https://github.com/devshinn)                       |                   [mrsimplelife](https://github.com/mrsimplelife)                    |                       [hyeri-woo](https://github.com/hyeri-woo)                       |                       [dmsgkr02](https://github.com/dmsgkr02)                        |
-|                                    api 설정, redux 설정                                    |                                    NotFound 페이지 및 기능 설정                                    |                         이슈 목록 화면 무한 스크롤 구현, 배포                          |                                   공동 헤더 구현                                    |                          초기 프로젝트 환경 설정, 이슈 목록 화면 구현                           |                       이슈 Detail 구현                        |
-
+|                                api 설정, redux 설정                                 |                            NotFound 페이지 및 기능 설정                             |                        이슈 목록 화면 무한 스크롤 구현, 배포                        |                                    공동 헤더 구현                                    |                     초기 프로젝트 환경 설정, 이슈 목록 화면 구현                      |                                   이슈 Detail 구현                                   |
 
 ## 배포 링크
 
@@ -123,6 +122,7 @@ module.exports = {
 ```
 
 ## 폴더 구조
+
 ```
 📦src
  ┣ 📂api

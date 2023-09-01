@@ -6,7 +6,7 @@ interface Props {
 
 export default function Loader({ position }: Props) {
   return (
-    <StyledLoader position={position}>
+    <StyledLoader $position={position}>
       <svg width='48' height='48' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'>
         <circle className='spinner_qM83' cx='8' cy='24' r='6' fill='#f9b17a' />
         <circle className='spinner_qM83 spinner_oXPr' cx='24' cy='24' r='6' fill='#f9b17a' />
@@ -16,14 +16,14 @@ export default function Loader({ position }: Props) {
   );
 }
 
-const StyledLoader = styled.article<Props>`
+const StyledLoader = styled.article<{ $position: string }>`
   width: 100%;
   height: 100px;
   padding-top: 30px;
   display: flex;
   justify-content: center;
   z-index: 999;
-  align-items: ${props => (props.position === 'center' ? 'center' : 'flex-end')};
+  align-items: ${props => (props.$position === 'center' ? 'center' : 'flex-end')};
   svg {
     margin-bottom: 70px;
     .spinner_qM83 {

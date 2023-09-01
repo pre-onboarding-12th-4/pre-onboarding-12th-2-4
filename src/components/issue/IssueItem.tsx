@@ -9,7 +9,7 @@ interface Props {
 
 export default function IssueItem({ isDetail, issue }: Props) {
   return (
-    <StyledItem isdetail={isDetail ? 'true' : 'false'}>
+    <StyledItem $isdetail={isDetail}>
       <Link to={`/${issue.number}`}>
         <h2>
           <span className='issue-num'>#{issue.number}</span> {issue.title}
@@ -30,7 +30,7 @@ export default function IssueItem({ isDetail, issue }: Props) {
   );
 }
 
-const StyledItem = styled.div<{ isdetail?: string }>`
+const StyledItem = styled.div<{ $isdetail?: boolean }>`
   width: 100%;
   height: 100%;
   background: var(--color-dark-grey);
@@ -38,8 +38,9 @@ const StyledItem = styled.div<{ isdetail?: string }>`
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 10px 0px;
   &:hover {
-    background: ${({ isdetail }) => isdetail === 'false' && 'var(--color-light-grey)'};
+    background: ${({ $isdetail }) => $isdetail && 'var(--color-light-grey)'};
   }
+  cursor: ${({ $isdetail }) => $isdetail && 'pointer'};
   img {
     width: 40px;
     border-radius: 50%;

@@ -5,9 +5,10 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        /* color: white; */
+        color: white;
     }
     html, body, #root {
+        background: var(--color-bg-grey);
     }
     a {
         vertical-align: baseline;
@@ -42,6 +43,10 @@ const GlobalStyle = createGlobalStyle`
         position: absolute;
     }
     :root {
+        --color-light-grey: #676f9d;
+        --color-dark-grey: #424769;
+        --color-bg-grey: #2d3250;
+        --color-yellow: #f9b17a;
     }
 `;
 

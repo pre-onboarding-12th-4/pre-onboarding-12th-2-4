@@ -38,9 +38,8 @@ const StyledItem = styled.div<{ $isdetail?: boolean }>`
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 10px 0px;
   &:hover {
-    background: ${({ $isdetail }) => $isdetail && 'var(--color-light-grey)'};
+    background: ${({ $isdetail }) => !$isdetail && 'var(--color-light-grey)'};
   }
-  cursor: ${({ $isdetail }) => $isdetail && 'pointer'};
   img {
     width: 40px;
     border-radius: 50%;

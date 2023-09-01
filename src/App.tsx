@@ -1,4 +1,3 @@
-import './App.css';
 import Detail from './pages/Detail';
 import Issue from './pages/Issue';
 import NotFound from './pages/NotFound';

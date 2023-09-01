@@ -17,9 +17,9 @@ export default function Loader({ position }: Props) {
 }
 
 const StyledLoader = styled.article<Props>`
-  position: fixed;
   width: 100%;
-  height: 100%;
+  height: 100px;
+  padding-top: 30px;
   display: flex;
   justify-content: center;
   z-index: 999;

@@ -1,7 +1,7 @@
 # 원티드 프리온보딩 2주차 과제
 
 - 해당 repository는 원티드 프리온보딩 프론트엔트 인턴쉽 12차 2주차 과제을 다뤘습니다.
-- 프리온보딩 선발과제인 todo를 팀원들과 상의해 각 기능의 Best Practice를 도출하고 합친 결과물입니다.
+- 프리온보딩 선발과제인 githun issue list를 팀원들과 상의해 각 기능의 Best Practice를 도출하고 합친 결과물입니다.
 
 ## 팀 구성원 및 역할
 
@@ -45,14 +45,27 @@ npm start
 
 ## 기술 및 개발 환경
 
-### 사용 라이브러리
+### 사용 언어 / 라이브러리
+
+- 언어: TypeScript
+- 전역 상태 관리: Redux toolkit
+- 스타일 관리: styled-components
+- 라우팅 관련 라이브러리: react-router-dom
+- HTTP Client: axios
+- 마크다운 렌더링: react-markdown
 
 ```js
 "dependencies" : {
   "axios": "^1.2.2",
   "react-router-dom": "^6.15.0",
   "styled-components": "^6.0.7",
-  "typescript": "^4.9.5"
+  "react-markdown": "^8.0.7",
+  "@reduxjs/toolkit": "^1.9.5",
+  "react-redux": "^8.1.2",
+  "redux": "^4.2.1",
+  "typescript": "^4.9.5",
+  "lodash": "^4.17.21",
+
 }
 
 "devDependecies" : {
@@ -135,13 +148,10 @@ module.exports = {
  ┃ ┃ ┣ 📜Header.tsx
  ┃ ┃ ┗ 📜Loader.tsx
  ┃ ┣ 📂issue
- ┃ ┃ ┣ 📜IssueDetail.tsx
  ┃ ┃ ┗ 📜IssueItem.tsx
  ┃ ┗ 📜Ad.tsx
  ┣ 📂hooks
  ┃ ┗ 📜useScroll.ts
- ┣ 📂lib
- ┃ ┗ 📜utils.ts
  ┣ 📂pages
  ┃ ┣ 📜Detail.tsx
  ┃ ┣ 📜Issue.tsx
@@ -154,8 +164,7 @@ module.exports = {
  ┃ ┣ 📜hooks.ts
  ┃ ┗ 📜store.ts
  ┣ 📂styles
- ┃ ┣ 📜GlobalStyle.jsx
- ┃ ┗ 📜index.ts
+ ┃ ┗ 📜GlobalStyle.jsx
  ┣ 📂types
  ┃ ┗ 📜index.ts
  ┣ 📜App.css
@@ -167,8 +176,6 @@ module.exports = {
  ┣ 📜reportWebVitals.ts
  ┗ 📜setupTests.ts
 ```
-
-## UI
 
 ## 기능 상세
 
@@ -186,13 +193,13 @@ module.exports = {
 - getIssue url
 
 ```
-facebook/react/issues?per_page=${LOAD_DATA_LENGTH}&page=${page}&sort=comments
+${organization}/${repository}/issues?per_page=${LOAD_DATA_LENGTH}&page=${page}&sort=comments
 ```
 
 - getIssueDetail url
 
 ```
-facebook/react/issues/${issueNumber}
+${organization}/${repository}/issues/${issueNumber}
 ```
 
 ### Assignment 1-2: 이슈 목록 화면

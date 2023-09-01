@@ -11,7 +11,7 @@ import { Fragment, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { styled } from 'styled-components';
 
-const scrollOffsetHeight = 30;
+const scrollOffsetHeight = 100;
 export default function Issue() {
   const { scrollHeight, scrollY } = useScroll();
   const dispatch = useAppDispatch();
@@ -28,9 +28,9 @@ export default function Issue() {
     if (loading || !hasMore) return;
     dispatch(
       fetchIssue({
-        organization: organization,
-        repository: repository,
-        page: page,
+        organization,
+        repository,
+        page,
       }),
     );
   }, [dispatch, hasMore, loading, organization, page, repository]);
@@ -39,9 +39,9 @@ export default function Issue() {
     !issueList.length &&
       dispatch(
         fetchIssue({
-          organization: organization,
-          repository: repository,
-          page: page,
+          organization,
+          repository,
+          page,
         }),
       );
   }, []);
@@ -52,7 +52,7 @@ export default function Issue() {
       nextIssueDispatch();
       return;
     }
-  }, [scrollY, scrollHeight]);
+  }, [scrollY, scrollHeight, nextIssueDispatch]);
 
   if (error) {
     return <NotFound />;
@@ -62,7 +62,7 @@ export default function Issue() {
     <Layout>
       {loading && <Loader position='bottom' />}
       <StyledIssueList>
-        {issueList.length &&
+        {issueList.length !== 0 &&
           issueList.map((issue, index) => {
             return (
               <Fragment key={`${issue.number} ${index}`}>

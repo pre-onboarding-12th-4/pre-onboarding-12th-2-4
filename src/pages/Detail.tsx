@@ -6,6 +6,7 @@ import { fetchIssueDetail } from '../redux/slices/issueDetail';
 import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useParams } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 export default function Detail() {
@@ -14,16 +15,17 @@ export default function Detail() {
   const dispatch = useAppDispatch();
   const { data: issue, loading, error } = useAppSelector(state => state.issueDetail);
   const { organization, repository } = useAppSelector(state => state.issueOption);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchIssueDetail({ organization, repository, issueNumber }));
   }, []);
 
-  if (error) {
-    return <div>error page</div>;
-  }
   if (loading) {
     return <Loader position='center' />;
+  }
+  if (error) {
+    navigate('/error');
   }
   return (
     <>

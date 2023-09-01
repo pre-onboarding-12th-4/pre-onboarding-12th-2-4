@@ -21,8 +21,13 @@ export interface GetIssueDetailOptions extends IssueOptions {
 
 export const fetchIssueDetail = createAsyncThunk(
   'get/issue-detail',
-  async ({ organization, repository, issueNumber }: GetIssueDetailOptions) => {
-    return await fetchGetIssueDetail(organization, repository, issueNumber);
+  async ({ organization, repository, issueNumber }: GetIssueDetailOptions, { rejectWithValue }) => {
+    try {
+      const response = await fetchGetIssueDetail(organization, repository, issueNumber);
+      return response;
+    } catch (error) {
+      return rejectWithValue((error as { message: string }).message);
+    }
   },
 );
 
@@ -41,9 +46,9 @@ export const issueDetailSlice = createSlice({
         state.data = action.payload;
       },
     );
-    builder.addCase(fetchIssueDetail.rejected, (state: IssueDetailState) => {
+    builder.addCase(fetchIssueDetail.rejected, (state: IssueDetailState, action) => {
       state.loading = false;
-      state.error = null;
+      state.error = action.payload as string;
     });
   },
 });

@@ -26,8 +26,13 @@ const initialState: IssueState = {
 // Async Thunk
 export const fetchIssue = createAsyncThunk(
   'get/issue',
-  async ({ organization, repository, page }: GetIssueOptions) => {
-    return await fetchGetIssues(organization, repository, page);
+  async ({ organization, repository, page }: GetIssueOptions, { rejectWithValue }) => {
+    try {
+      const response = await fetchGetIssues(organization, repository, page);
+      return response;
+    } catch (error) {
+      return rejectWithValue((error as { message: string }).message);
+    }
   },
 );
 
@@ -47,9 +52,9 @@ export const issueSlice = createSlice({
       }
       state.page += 1;
     });
-    builder.addCase(fetchIssue.rejected, (state: IssueState) => {
+    builder.addCase(fetchIssue.rejected, (state: IssueState, action) => {
       state.loading = false;
-      state.error = null;
+      state.error = action.payload as string;
     });
   },
 });

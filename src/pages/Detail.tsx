@@ -19,7 +19,7 @@ export default function Detail() {
 
   useEffect(() => {
     dispatch(fetchIssueDetail({ organization, repository, issueNumber }));
-  }, []);
+  }, [dispatch, issueNumber, organization, repository]);
 
   if (loading) {
     return <Loader position='center' />;
@@ -51,12 +51,16 @@ const StyledDetail = styled.main`
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 10px 0px;
     margin-top: 30px;
+
     h1 {
       color: var(--color-yellow);
       margin-bottom: 20px;
     }
     p {
       margin-bottom: 10px;
+    }
+    pre {
+      white-space: pre-wrap;
     }
   }
 `;

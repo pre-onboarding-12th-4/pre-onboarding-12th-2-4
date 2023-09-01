@@ -17,7 +17,7 @@ export interface GetIssueOptions extends IssueOptions {
 
 const initialState: IssueState = {
   data: [] as Issue[],
-  page: 0,
+  page: 1,
   loading: false,
   error: null as string | null,
   hasMore: true,

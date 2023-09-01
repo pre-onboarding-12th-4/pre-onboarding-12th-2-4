@@ -12,7 +12,7 @@ const fetchGetIssues = async (
     params: {
       sort: 'comments',
       page: page,
-      per_page: 10,
+      per_page: LOAD_DATA_LENGTH,
     },
   });
   return res.data.map((issue: any) => {
@@ -46,4 +46,4 @@ const fetchGetIssueDetail = async (
   };
 };
 
-export { fetchGetIssues, fetchGetIssueDetail };
+export { fetchGetIssueDetail, fetchGetIssues };

@@ -1,37 +1,71 @@
 import Ad from '../components/Ad';
 import Header from '../components/common/Header';
 import IssueItem from '../components/issue/IssueItem';
+import { useScroll } from '../hooks/useScroll';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { fetchIssue } from '../redux/slices/issue';
 import { RootState } from '../redux/store';
-import { useEffect } from 'react';
+import NotFound from './NotFound';
+import { Fragment, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { styled } from 'styled-components';
 
+const scrollOffsetHeight = 30;
 export default function Issue() {
-  const issues = useSelector((state: RootState) => state.issueList);
-  const { organization, repository } = useAppSelector(state => state.issueOption);
+  const { scrollHeight, scrollY } = useScroll();
   const dispatch = useAppDispatch();
+  const { organization, repository } = useAppSelector(state => state.issueOption);
+  const {
+    data: issueList,
+    loading,
+    error,
+    page,
+    hasMore,
+  } = useSelector((state: RootState) => state.issueList);
 
-  useEffect(() => {
+  const nextIssueDispatch = useCallback(() => {
+    if (loading || !hasMore) return;
     dispatch(
       fetchIssue({
         organization: organization,
         repository: repository,
-        page: issues.page,
+        page: page,
       }),
     );
+  }, [dispatch, hasMore, loading, organization, page, repository]);
+
+  useEffect(() => {
+    !issueList.length &&
+      dispatch(
+        fetchIssue({
+          organization: organization,
+          repository: repository,
+          page: page,
+        }),
+      );
   }, []);
+
+  useEffect(() => {
+    if (scrollY === scrollHeight) return;
+    if (scrollY > scrollHeight - scrollOffsetHeight) {
+      nextIssueDispatch();
+      return;
+    }
+  }, [scrollY, scrollHeight]);
+
+  if (error) {
+    return <NotFound />;
+  }
 
   return (
     <>
       <Header />
       <StyledIssueList>
-        {issues.data.length > 0 &&
-          issues.data.map((issue, index) => {
+        {issueList.length &&
+          issueList.map((issue, index) => {
             return (
-              <>
-                <li key={issue.number}>
+              <Fragment key={`${issue.number} ${index}`}>
+                <li>
                   <IssueItem issue={issue} />
                 </li>
                 {(index + 1) % 4 === 0 && (
@@ -39,7 +73,7 @@ export default function Issue() {
                     <Ad />
                   </li>
                 )}
-              </>
+              </Fragment>
             );
           })}
       </StyledIssueList>
@@ -47,4 +81,10 @@ export default function Issue() {
   );
 }
 
-const StyledIssueList = styled.ul``;
+const StyledIssueList = styled.ul`
+  li {
+    padding: 30px;
+    border: solid 1px #545454;
+    margin: 2px;
+  }
+`;

@@ -2,7 +2,7 @@ import Loader from '../components/common/Loader';
 import IssueItem from '../components/issue/IssueItem';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { fetchIssueDetail } from '../redux/slices/issueDetail';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useParams } from 'react-router';
 

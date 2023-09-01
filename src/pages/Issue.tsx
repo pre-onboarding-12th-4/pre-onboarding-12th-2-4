@@ -1,5 +1,6 @@
 import Ad from '../components/Ad';
 import Header from '../components/common/Header';
+import Loader from '../components/common/Loader';
 import IssueItem from '../components/issue/IssueItem';
 import { useScroll } from '../hooks/useScroll';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
@@ -76,6 +77,7 @@ export default function Issue() {
               </Fragment>
             );
           })}
+        {loading && <Loader />}
       </StyledIssueList>
     </>
   );

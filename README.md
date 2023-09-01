@@ -123,6 +123,48 @@ module.exports = {
 ```
 
 ## 폴더 구조
+```
+📦src
+ ┣ 📂api
+ ┃ ┣ 📜index.ts
+ ┃ ┗ 📜issue.ts
+ ┣ 📂components
+ ┃ ┣ 📂common
+ ┃ ┃ ┣ 📜Header.tsx
+ ┃ ┃ ┗ 📜Loader.tsx
+ ┃ ┣ 📂issue
+ ┃ ┃ ┣ 📜IssueDetail.tsx
+ ┃ ┃ ┗ 📜IssueItem.tsx
+ ┃ ┗ 📜Ad.tsx
+ ┣ 📂hooks
+ ┃ ┗ 📜useScroll.ts
+ ┣ 📂lib
+ ┃ ┗ 📜utils.ts
+ ┣ 📂pages
+ ┃ ┣ 📜Detail.tsx
+ ┃ ┣ 📜Issue.tsx
+ ┃ ┗ 📜NotFound.tsx
+ ┣ 📂redux
+ ┃ ┣ 📂slices
+ ┃ ┃ ┣ 📜issue.ts
+ ┃ ┃ ┣ 📜issueDetail.ts
+ ┃ ┃ ┗ 📜issueOption.ts
+ ┃ ┣ 📜hooks.ts
+ ┃ ┗ 📜store.ts
+ ┣ 📂styles
+ ┃ ┣ 📜GlobalStyle.jsx
+ ┃ ┗ 📜index.ts
+ ┣ 📂types
+ ┃ ┗ 📜index.ts
+ ┣ 📜App.css
+ ┣ 📜App.test.tsx
+ ┣ 📜App.tsx
+ ┣ 📜index.css
+ ┣ 📜index.tsx
+ ┣ 📜react-app-env.d.ts
+ ┣ 📜reportWebVitals.ts
+ ┗ 📜setupTests.ts
+```
 
 ## UI
 

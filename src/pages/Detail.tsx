@@ -48,7 +48,7 @@ const StyledDetail = styled.main`
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 10px 0px;
     margin-top: 30px;
-
+    word-break: break-all;
     h1 {
       color: var(--color-yellow);
       margin-bottom: 20px;

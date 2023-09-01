@@ -10,7 +10,7 @@ export default function NotFound() {
         alt='error'
       />
       <h1>404 찾을 수 없는 페이지입니다.</h1>
-      <button onClick={() => navigate('/')}>홈페이지로 가기</button>
+      <button onClick={() => navigate('/')}>홈페이지 이동</button>
     </StyledError>
   );
 }

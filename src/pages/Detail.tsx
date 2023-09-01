@@ -1,4 +1,4 @@
-import Header from '../components/common/Header';
+import Layout from '../components/common/Layout';
 import Loader from '../components/common/Loader';
 import IssueItem from '../components/issue/IssueItem';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
@@ -21,15 +21,12 @@ export default function Detail() {
     dispatch(fetchIssueDetail({ organization, repository, issueNumber }));
   }, []);
 
-  if (loading) {
-    return <Loader position='center' />;
-  }
   if (error) {
     navigate('/error');
   }
   return (
-    <>
-      <Header />
+    <Layout>
+      {loading && <Loader position='center' />}
       <StyledDetail>
         <IssueItem isDetail={true} issue={issue} />
         <div>
@@ -37,7 +34,7 @@ export default function Detail() {
           {issue.body}
         </div>
       </StyledDetail>
-    </>
+    </Layout>
   );
 }
 

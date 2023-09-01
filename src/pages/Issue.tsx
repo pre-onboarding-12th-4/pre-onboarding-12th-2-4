@@ -1,5 +1,5 @@
 import Ad from '../components/Ad';
-import Header from '../components/common/Header';
+import Layout from '../components/common/Layout';
 import Loader from '../components/common/Loader';
 import IssueItem from '../components/issue/IssueItem';
 import { useScroll } from '../hooks/useScroll';
@@ -59,8 +59,7 @@ export default function Issue() {
   }
 
   return (
-    <>
-      <Header />
+    <Layout>
       {loading && <Loader position='bottom' />}
       <StyledIssueList>
         {issueList.length &&
@@ -79,7 +78,7 @@ export default function Issue() {
             );
           })}
       </StyledIssueList>
-    </>
+    </Layout>
   );
 }
 
